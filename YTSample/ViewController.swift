@@ -12,6 +12,7 @@ import youtube_ios_player_helper
 class ViewController: UIViewController {
     
     let playerView =  YTPlayerView()
+    let titleLabel = UILabel()
     let baseURLString = "https://www.googleapis.com"
     var ytDatas:[YoutubeApiMapper] = []
     
@@ -26,7 +27,14 @@ class ViewController: UIViewController {
         playerView.load(withVideoId: "gh6GT40zKCo")
         view.addSubview(playerView)
         
-        tableviewVideoList.frame = CGRect(x:0,y:videoPlayerY,width:view.frame.width,height:view.frame.height - videoPlayerY)
+        titleLabel.frame = CGRect(x: 0,y: playerView.frame.height,width: view.frame.width,height: videoPlayerY - 30)
+        titleLabel.backgroundColor = UIColor.white
+        titleLabel.text = "Title ng Video"
+        titleLabel.textAlignment = .left
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 25.0)
+        view.addSubview(titleLabel)
+        
+        tableviewVideoList.frame = CGRect(x:0,y: titleLabel.frame.origin.y + titleLabel.frame.height,width:view.frame.width,height:view.frame.height - (titleLabel.frame.origin.y + titleLabel.frame.height))
         view.addSubview(tableviewVideoList)
 
         tableviewVideoList.delegate = self
@@ -38,7 +46,6 @@ class ViewController: UIViewController {
         ApiService<YoutubeApiMapper>().request(keyPath:"items",urlEndpoint: "/youtube/v3/search", params: params, method: .get, completion: { json in
             if let jsonData = json {
                 self.ytDatas = jsonData
-                print(jsonData)
                 self.tableviewVideoList.reloadData()
             }
         })
