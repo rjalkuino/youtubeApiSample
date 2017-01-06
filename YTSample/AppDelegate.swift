@@ -8,9 +8,13 @@
 
 import UIKit
 
+
+let Env = EnvType.localStaging
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
     var window: UIWindow?
 
 

@@ -8,8 +8,6 @@
 
 import UIKit
 import youtube_ios_player_helper
-import Alamofire
-import ObjectMapper
 import AlamofireObjectMapper
 import SDWebImage
 
@@ -37,10 +35,12 @@ class ViewController: UIViewController {
         tableviewVideoList.dataSource = self
         tableviewVideoList.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        request(completion: { val in
-            
-            if let values = val {
-                self.ytDatas = values
+        let params = ["part": "snippet","channelId":"UCE_M8A5yxnLfW0KghEeajjw","key":"AIzaSyASbUWRlzaWcFPna8M1PmgaLWNzk1Jf0ns"]
+        
+        ApiService<YoutubeApiMapper>().request(keyPath:"items",urlEndpoint: "/youtube/v3/search", params: params, method: .get, completion: { json in
+            if let jsonData = json {
+                self.ytDatas = jsonData
+                print(jsonData)
                 self.tableviewVideoList.reloadData()
             }
         })
@@ -49,23 +49,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
- 
-    
-    func request(completion: @escaping ([YoutubeApiMapper]?) -> Void) {
-        
-        let urlString = URL(string: baseURLString + "/youtube/v3/search")
-        
-        let parameters: Parameters = ["part": "snippet","channelId":"UCE_M8A5yxnLfW0KghEeajjw","key":"AIzaSyASbUWRlzaWcFPna8M1PmgaLWNzk1Jf0ns"]
-        
-        Alamofire.request(urlString!, method: .get, parameters: parameters, encoding: URLEncoding.default)
-            .validate { request, response, data in
-                return .success
-            }
-            .responseArray(keyPath: "items") { (response: DataResponse<[YoutubeApiMapper]>) in
-                
-                completion(response.result.value)
-            }
     }
     
 }
