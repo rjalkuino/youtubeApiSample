@@ -8,8 +8,6 @@
 
 import UIKit
 import youtube_ios_player_helper
-import AlamofireObjectMapper
-import SDWebImage
 
 class ViewController: UIViewController {
     
@@ -33,7 +31,7 @@ class ViewController: UIViewController {
 
         tableviewVideoList.delegate = self
         tableviewVideoList.dataSource = self
-        tableviewVideoList.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableviewVideoList.register(YoutubeTableViewCell.self, forCellReuseIdentifier: "Cell")
         
         let params = ["part": "snippet","channelId":"UCE_M8A5yxnLfW0KghEeajjw","key":"AIzaSyASbUWRlzaWcFPna8M1PmgaLWNzk1Jf0ns"]
         
@@ -55,13 +53,10 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! YoutubeTableViewCell
         
         let infos = ytDatas[indexPath.row]
-        
-        cell.textLabel?.text = infos.title! as String
-        cell.imageView?.sd_setImage(with: NSURL(string: infos.thumbnailUrl!) as URL!)
-        cell.detailTextLabel?.text = infos.description! as String
+        cell.bind(cellInfo: infos)
         
         return cell
     }

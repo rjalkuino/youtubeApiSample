@@ -53,6 +53,5 @@ class ApiService<T:Mappable> {
             .responseObject{ (response: DataResponse<T>) in
                 completion(response.result.value)
         }
-        
     }
 }
