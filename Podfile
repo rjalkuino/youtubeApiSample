@@ -11,4 +11,5 @@ pod 'Alamofire', '~> 4.0'
 pod 'ObjectMapper', '~> 2.2.1'
 pod 'AlamofireObjectMapper', '~> 4.0'
 pod 'SDWebImage/WebP'
+pod 'Neon'
 end
