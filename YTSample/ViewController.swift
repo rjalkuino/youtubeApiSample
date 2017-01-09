@@ -10,13 +10,14 @@ import UIKit
 import youtube_ios_player_helper
 import MobileCoreServices
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchResultsUpdating,UISearchControllerDelegate,UISearchBarDelegate{
+class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     let playerView =  YTPlayerView()
     let titleLabel = UILabel()
     let artistLabel = UILabel()
     var ytDatas:[YoutubeApiMapper] = []
-    var searchController: UISearchController!
+    
+    lazy var searchController:UISearchBar = UISearchBar(frame: CGRect.zero);
     var dividerView = UIView()
     
     let tableviewVideoList = UITableView()
@@ -57,14 +58,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         tableviewVideoList.dataSource = self
         tableviewVideoList.register(YoutubeTableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        let params = ["part": "snippet","q":"karaoke","key":"AIzaSyASbUWRlzaWcFPna8M1PmgaLWNzk1Jf0ns"]
-        
-        ApiService<YoutubeApiMapper>().request(keyPath:"items",urlEndpoint: "/youtube/v3/search", params: params, method: .get, completion: { json in
-            if let jsonData = json {
-                self.ytDatas = jsonData
-                self.tableviewVideoList.reloadData()
-            }
-        })
+        self.callApi(q: "")
         
 //        mainButton = UIButton(type: .custom)
 //        mainButton.backgroundColor = UIColor.red
@@ -84,20 +78,27 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         self.configureSearchController()
     }
     
-    func configureSearchController() {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search title or artist..."
-        searchController.searchBar.delegate = self
+    func callApi(q:String) {
+        let params = ["part": "snippet","q":"karaoke " + q,"key":"AIzaSyASbUWRlzaWcFPna8M1PmgaLWNzk1Jf0ns"]
         
-        self.navigationItem.titleView = searchController.searchBar
+        ApiService<YoutubeApiMapper>().request(keyPath:"items",urlEndpoint: "/youtube/v3/search", params: params, method: .get, completion: { json in
+            if let jsonData = json {
+                self.ytDatas = jsonData
+                self.searchController.endEditing(true)
+                self.tableviewVideoList.reloadData()
+            }
+        })
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        print("wow ah")
-    }
     
+    func configureSearchController() {
+        searchController.placeholder = "Search title or artist..";
+        searchController.delegate = self;
+        searchController.showsCancelButton = true;
+        searchController.autocapitalizationType = .none
+        searchController.tintColor = UIColor.black
+        self.navigationItem.titleView = searchController
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -168,6 +169,31 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         
         present(mediaUI, animated: true, completion: nil)
         return true
+    }
+    
+}
+extension ViewController: UISearchBarDelegate {
+//    private func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+//        
+//    }
+//    
+//    
+//    private func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+//        print("searchBarTextDidBeginEditing")
+//    }
+//    
+//    private func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+//        print("searchBarTextDidEndEditing")
+//    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarSearchButtonClicked")
+        self.callApi(q: searchBar.text!)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarCancelButtonClicked")
+        searchBar.endEditing(true)
     }
     
 }
