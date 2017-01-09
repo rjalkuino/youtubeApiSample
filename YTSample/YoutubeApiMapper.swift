@@ -22,6 +22,6 @@ class YoutubeApiMapper: Mappable {
         thumbnailUrl <- map["snippet.thumbnails.default.url"]
         title        <- map["snippet.title"]
         id           <- map["id.videoId"]
-        description  <- map["snippet.videoId"]
+        description  <- map["snippet.description"]
     }
 }

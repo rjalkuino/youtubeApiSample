@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59385A9A1E238BC1004D2B31 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59385A991E238BC1004D2B31 /* TabViewController.swift */; };
+		59385A9D1E238CB7004D2B31 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59385A9C1E238CB7004D2B31 /* MainNavigationController.swift */; };
 		5966EC491E1BBE2200D71D09 /* YoutubeApiMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966EC481E1BBE2200D71D09 /* YoutubeApiMapper.swift */; };
 		59A00AA81E1F89D000578B5D /* YoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A00AA71E1F89D000578B5D /* YoutubeTableViewCell.swift */; };
 		59A00AAA1E1FB96E00578B5D /* VideoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A00AA91E1FB96E00578B5D /* VideoCollectionViewController.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		270285A153F4D8BE7371940E /* Pods_YTSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59385A991E238BC1004D2B31 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		59385A9C1E238CB7004D2B31 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		5966EC481E1BBE2200D71D09 /* YoutubeApiMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeApiMapper.swift; sourceTree = "<group>"; };
 		59A00AA71E1F89D000578B5D /* YoutubeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeTableViewCell.swift; sourceTree = "<group>"; };
 		59A00AA91E1FB96E00578B5D /* VideoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +52,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59385A981E238B8E004D2B31 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				59385A991E238BC1004D2B31 /* TabViewController.swift */,
+				59385A9B1E238C80004D2B31 /* MainView */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		59385A9B1E238C80004D2B31 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				59F8BE6D1E139EAC00E7998A /* ViewController.swift */,
+				59385A9C1E238CB7004D2B31 /* MainNavigationController.swift */,
+			);
+			name = MainView;
+			sourceTree = "<group>";
+		};
 		59A3751D1E1E132C00B3D19B /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,10 +99,10 @@
 		59F8BE6A1E139EAC00E7998A /* YTSample */ = {
 			isa = PBXGroup;
 			children = (
+				59385A981E238B8E004D2B31 /* Views */,
 				59A3751D1E1E132C00B3D19B /* Services */,
 				59F8BE6B1E139EAC00E7998A /* AppDelegate.swift */,
 				59A00AA71E1F89D000578B5D /* YoutubeTableViewCell.swift */,
-				59F8BE6D1E139EAC00E7998A /* ViewController.swift */,
 				59F8BE721E139EAD00E7998A /* Assets.xcassets */,
 				59F8BE771E139EAD00E7998A /* Info.plist */,
 				5966EC481E1BBE2200D71D09 /* YoutubeApiMapper.swift */,
@@ -230,12 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59385A9D1E238CB7004D2B31 /* MainNavigationController.swift in Sources */,
 				59A375211E1E18B400B3D19B /* Constants.swift in Sources */,
 				59A00AAA1E1FB96E00578B5D /* VideoCollectionViewController.swift in Sources */,
 				59F8BE6E1E139EAC00E7998A /* ViewController.swift in Sources */,
 				59F8BE6C1E139EAC00E7998A /* AppDelegate.swift in Sources */,
 				59A00AA81E1F89D000578B5D /* YoutubeTableViewCell.swift in Sources */,
 				59A3751F1E1E136300B3D19B /* ApiService.swift in Sources */,
+				59385A9A1E238BC1004D2B31 /* TabViewController.swift in Sources */,
 				59A00AAC1E1FB98D00578B5D /* VideoCollectionViewCell.swift in Sources */,
 				5966EC491E1BBE2200D71D09 /* YoutubeApiMapper.swift in Sources */,
 			);
@@ -332,6 +356,7 @@
 			baseConfigurationReference = A8DCC009F3D75734778583B1 /* Pods-YTSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 4Y4J5JD5NJ;
 				INFOPLIST_FILE = YTSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -346,6 +371,7 @@
 			baseConfigurationReference = AA4F50911B3E09F9117AB2DF /* Pods-YTSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 4Y4J5JD5NJ;
 				INFOPLIST_FILE = YTSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

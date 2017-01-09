@@ -20,10 +20,12 @@ class YoutubeTableViewCell: UITableViewCell {
         thumbnail.frame = CGRect(x:10,y:10,width:100,height:80)
         addSubview(thumbnail)
         
-        title.font = UIFont.boldSystemFont(ofSize: 20.0)
-        title.frame = CGRect(x:110,y:20,width:self.frame.width - 110,height:30)
+        title.font = UIFont.boldSystemFont(ofSize: 15.0)
+        title.numberOfLines = 0
+        title.frame = CGRect(x:120,y:10,width:self.frame.width - 120,height:80)
         addSubview(title)
     }
+    
     func bind(cellInfo:YoutubeApiMapper) {
         title.text = cellInfo.title
         thumbnail.sd_setImage(with: NSURL(string: cellInfo.thumbnailUrl!) as URL!)
@@ -32,5 +34,4 @@ class YoutubeTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }

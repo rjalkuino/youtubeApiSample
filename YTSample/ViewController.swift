@@ -10,37 +10,54 @@ import UIKit
 import youtube_ios_player_helper
 import MobileCoreServices
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchResultsUpdating,UISearchControllerDelegate,UISearchBarDelegate{
     
     let playerView =  YTPlayerView()
     let titleLabel = UILabel()
-    let baseURLString = "https://www.googleapis.com"
+    let artistLabel = UILabel()
     var ytDatas:[YoutubeApiMapper] = []
+    var searchController: UISearchController!
+    var dividerView = UIView()
     
     let tableviewVideoList = UITableView()
-    var mainButton = UIButton()
+    let urlParam = "karaoke"
+    //var mainButton = UIButton()
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        let videoPlayerY = view.frame.height/3
         
-        view.backgroundColor = UIColor.blue
-        playerView.load(withVideoId: "gh6GT40zKCo")
+        super.viewDidLoad()
+        
+        let videoPlayerY = self.view.frame.height/3
+        let labelHeight = (self.view.frame.height * 0.2) / 2
+        
+        view.backgroundColor = UIColor.white
+        playerView.load(withVideoId: "")
         view.addSubview(playerView)
         
         titleLabel.backgroundColor = UIColor.white
-        titleLabel.text = "Title ng Video"
+        titleLabel.numberOfLines = 0
+        titleLabel.text = ""
         titleLabel.textAlignment = .left
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 25.0)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+        
+        artistLabel.backgroundColor = UIColor.white
+        artistLabel.numberOfLines = 0
+        artistLabel.text = ""
+        artistLabel.textAlignment = .left
+        artistLabel.font = UIFont.boldSystemFont(ofSize: 14.0)
+        
+        dividerView.backgroundColor = UIColor.black
         
         view.addSubview(titleLabel)
+        view.addSubview(artistLabel)
+        view.addSubview(dividerView)
         view.addSubview(tableviewVideoList)
 
         tableviewVideoList.delegate = self
         tableviewVideoList.dataSource = self
         tableviewVideoList.register(YoutubeTableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        let params = ["part": "snippet","channelId":"UCE_M8A5yxnLfW0KghEeajjw","key":"AIzaSyASbUWRlzaWcFPna8M1PmgaLWNzk1Jf0ns"]
+        let params = ["part": "snippet","q":"karaoke","key":"AIzaSyASbUWRlzaWcFPna8M1PmgaLWNzk1Jf0ns"]
         
         ApiService<YoutubeApiMapper>().request(keyPath:"items",urlEndpoint: "/youtube/v3/search", params: params, method: .get, completion: { json in
             if let jsonData = json {
@@ -49,18 +66,36 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
             }
         })
         
-        mainButton = UIButton(type: .custom)
-        mainButton.backgroundColor = UIColor.red
-        mainButton.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
-        mainButton.layer.cornerRadius = 0.5 * mainButton.bounds.size.width
-        mainButton.clipsToBounds = true
-        mainButton.addTarget(self, action: #selector(mainButtonClicked), for: .touchUpInside)
-        view.addSubview(mainButton)
+//        mainButton = UIButton(type: .custom)
+//        mainButton.backgroundColor = UIColor.red
+//        mainButton.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+//        mainButton.layer.cornerRadius = 0.5 * mainButton.bounds.size.width
+//        mainButton.clipsToBounds = true
+//        mainButton.addTarget(self, action: #selector(mainButtonClicked), for: .touchUpInside)
+//        view.addSubview(mainButton)
         
-        playerView.anchorAndFillEdge(.top, xPad: 0, yPad: 0, otherSize: videoPlayerY)
-        titleLabel.align(.underCentered, relativeTo: playerView, padding: 0, width: view.frame.width , height: videoPlayerY - 30)
-        tableviewVideoList.align(.underCentered, relativeTo: titleLabel, padding: 0, width: view.frame.width , height: view.frame.height - playerView.frame.height - titleLabel.frame.height)
-        mainButton.anchorToEdge(.bottom, padding: 5, width: 50, height: 50)
+        playerView.anchorAndFillEdge(.top, xPad: 0, yPad: (self.navigationController?.navigationBar.height)! , otherSize: videoPlayerY)
+        titleLabel.align(.underMatchingRight, relativeTo: playerView, padding: 0, width: view.frame.width - 10, height: labelHeight)
+        artistLabel.align(.underMatchingRight, relativeTo: titleLabel, padding: 0, width: view.frame.width - 10, height: labelHeight)
+        dividerView.align(.underMatchingRight, relativeTo: artistLabel, padding: 0, width: view.frame.width, height: 2)
+        tableviewVideoList.align(.underCentered, relativeTo: dividerView, padding: 0, width: view.frame.width , height: view.frame.height - playerView.frame.height - (titleLabel.frame.height * 2) - (self.navigationController?.navigationBar.height)! - 2)
+//        mainButton.anchorToEdge(.bottom, padding: 5, width: 50, height: 50)
+        
+        self.configureSearchController()
+    }
+    
+    func configureSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search title or artist..."
+        searchController.searchBar.delegate = self
+        
+        self.navigationItem.titleView = searchController.searchBar
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        print("wow ah")
     }
     
 
@@ -163,6 +198,10 @@ extension ViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let infos = ytDatas[indexPath.row]
-        playerView.load(withVideoId: infos.id!)
+        if let id = infos.id {
+            playerView.load(withVideoId: id)
+            titleLabel.text = infos.title
+            artistLabel.text = infos.description
+        }
     }
 }

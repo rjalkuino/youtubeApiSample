@@ -14,10 +14,10 @@ class ApiService<T:Mappable> {
     
     private static var host: String {
         switch Env {
-        case .Development: return "optonaut.ngrok.io"
-        case .Staging: return "api-staging.dscvr.com"
+        case .Development: return ""
+        case .Staging: return ""
         case .localStaging: return "https://www.googleapis.com"
-        case .Production: return "api-production-v9.dscvr.com"
+        case .Production: return ""
         }
     }
     
