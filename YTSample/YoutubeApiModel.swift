@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class YoutubeApiMapper: Mappable {
+class YoutubeApiModel: Mappable {
     var thumbnailUrl: String?
     var title: String?
     var id: String?

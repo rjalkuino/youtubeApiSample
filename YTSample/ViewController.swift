@@ -8,19 +8,19 @@
 
 import UIKit
 import youtube_ios_player_helper
+import MMDrawerController
 
 class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     let playerView =  YTPlayerView()
     let titleLabel = UILabel()
     let artistLabel = UILabel()
-    var ytDatas:[YoutubeApiMapper] = []
+    var ytDatas:[YoutubeApiModel] = []
     
     lazy var searchController:UISearchBar = UISearchBar(frame: CGRect.zero);
     var dividerView = UIView()
     
     let tableviewVideoList = UITableView()
-    let urlParam = "karaoke"
 
     override func viewDidLoad() {
         
@@ -66,13 +66,17 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         
         self.configureSearchController()
         
-        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "BurgerMenu"), style: .plain, target: self, action: #selector(openDrawer))
+    }
+    
+    func openDrawer() {
+        self.mm_drawerController.toggle(MMDrawerSide.left, animated: true, completion: nil)
     }
     
     func callApi(q:String) {
-        let params = ["part": "snippet","q":"karaoke " + q,"key":"AIzaSyASbUWRlzaWcFPna8M1PmgaLWNzk1Jf0ns"]
+        let params = ["part": "snippet","q":"motorcycle diaries " + q,"key":"AIzaSyASbUWRlzaWcFPna8M1PmgaLWNzk1Jf0ns"]
         
-        ApiService<YoutubeApiMapper>().request(keyPath:"items",urlEndpoint: "/youtube/v3/search", params: params, method: .get, completion: { json in
+        ApiService<YoutubeApiModel>().request(keyPath:"items",urlEndpoint: "/youtube/v3/search", params: params, method: .get, completion: { json in
             if let jsonData = json {
                 self.ytDatas = jsonData
                 self.searchController.endEditing(true)
@@ -83,9 +87,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     
     func configureSearchController() {
-        searchController.placeholder = "Search title or artist..";
-        searchController.delegate = self;
-        searchController.showsCancelButton = true;
+        searchController.placeholder = "Search title.."
+        searchController.delegate = self
+        searchController.showsCancelButton = true
         searchController.autocapitalizationType = .none
         searchController.tintColor = UIColor.black
         self.navigationItem.titleView = searchController

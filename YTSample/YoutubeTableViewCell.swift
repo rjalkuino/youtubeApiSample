@@ -26,7 +26,7 @@ class YoutubeTableViewCell: UITableViewCell {
         addSubview(title)
     }
     
-    func bind(cellInfo:YoutubeApiMapper) {
+    func bind(cellInfo:YoutubeApiModel) {
         title.text = cellInfo.title
         thumbnail.sd_setImage(with: NSURL(string: cellInfo.thumbnailUrl!) as URL!)
     }

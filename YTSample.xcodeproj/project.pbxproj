@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		59385A9A1E238BC1004D2B31 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59385A991E238BC1004D2B31 /* TabViewController.swift */; };
 		59385A9D1E238CB7004D2B31 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59385A9C1E238CB7004D2B31 /* MainNavigationController.swift */; };
-		59385AA11E249F8B004D2B31 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59385AA01E249F8B004D2B31 /* DrawerViewController.swift */; };
-		5966EC491E1BBE2200D71D09 /* YoutubeApiMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966EC481E1BBE2200D71D09 /* YoutubeApiMapper.swift */; };
+		59385AA11E249F8B004D2B31 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59385AA01E249F8B004D2B31 /* LeftViewController.swift */; };
+		59385AA51E24C177004D2B31 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59385AA41E24C177004D2B31 /* PolicyViewController.swift */; };
+		5966EC491E1BBE2200D71D09 /* YoutubeApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966EC481E1BBE2200D71D09 /* YoutubeApiModel.swift */; };
 		59A00AA81E1F89D000578B5D /* YoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A00AA71E1F89D000578B5D /* YoutubeTableViewCell.swift */; };
-		59A00AAA1E1FB96E00578B5D /* VideoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A00AA91E1FB96E00578B5D /* VideoCollectionViewController.swift */; };
-		59A00AAC1E1FB98D00578B5D /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A00AAB1E1FB98D00578B5D /* VideoCollectionViewCell.swift */; };
 		59A3751F1E1E136300B3D19B /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3751E1E1E136200B3D19B /* ApiService.swift */; };
 		59A375211E1E18B400B3D19B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A375201E1E18B400B3D19B /* Constants.swift */; };
 		59F8BE6C1E139EAC00E7998A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F8BE6B1E139EAC00E7998A /* AppDelegate.swift */; };
@@ -24,13 +22,11 @@
 
 /* Begin PBXFileReference section */
 		270285A153F4D8BE7371940E /* Pods_YTSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		59385A991E238BC1004D2B31 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		59385A9C1E238CB7004D2B31 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
-		59385AA01E249F8B004D2B31 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
-		5966EC481E1BBE2200D71D09 /* YoutubeApiMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeApiMapper.swift; sourceTree = "<group>"; };
+		59385AA01E249F8B004D2B31 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		59385AA41E24C177004D2B31 /* PolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
+		5966EC481E1BBE2200D71D09 /* YoutubeApiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeApiModel.swift; sourceTree = "<group>"; };
 		59A00AA71E1F89D000578B5D /* YoutubeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeTableViewCell.swift; sourceTree = "<group>"; };
-		59A00AA91E1FB96E00578B5D /* VideoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewController.swift; sourceTree = "<group>"; };
-		59A00AAB1E1FB98D00578B5D /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		59A3751E1E1E136200B3D19B /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		59A375201E1E18B400B3D19B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		59F8BE681E139EAC00E7998A /* YTSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,8 +53,8 @@
 		59385A981E238B8E004D2B31 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				59385AA31E24C149004D2B31 /* PoliciesView */,
 				59385A9F1E249F63004D2B31 /* DrawerView */,
-				59385A991E238BC1004D2B31 /* TabViewController.swift */,
 				59385A9B1E238C80004D2B31 /* MainView */,
 			);
 			name = Views;
@@ -69,6 +65,7 @@
 			children = (
 				59F8BE6D1E139EAC00E7998A /* ViewController.swift */,
 				59385A9C1E238CB7004D2B31 /* MainNavigationController.swift */,
+				59A00AA71E1F89D000578B5D /* YoutubeTableViewCell.swift */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -76,15 +73,32 @@
 		59385A9F1E249F63004D2B31 /* DrawerView */ = {
 			isa = PBXGroup;
 			children = (
-				59385AA01E249F8B004D2B31 /* DrawerViewController.swift */,
+				59385AA01E249F8B004D2B31 /* LeftViewController.swift */,
 			);
 			name = DrawerView;
+			sourceTree = "<group>";
+		};
+		59385AA21E24BDD3004D2B31 /* ApiModel */ = {
+			isa = PBXGroup;
+			children = (
+				5966EC481E1BBE2200D71D09 /* YoutubeApiModel.swift */,
+			);
+			name = ApiModel;
+			sourceTree = "<group>";
+		};
+		59385AA31E24C149004D2B31 /* PoliciesView */ = {
+			isa = PBXGroup;
+			children = (
+				59385AA41E24C177004D2B31 /* PolicyViewController.swift */,
+			);
+			name = PoliciesView;
 			sourceTree = "<group>";
 		};
 		59A3751D1E1E132C00B3D19B /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				59A3751E1E1E136200B3D19B /* ApiService.swift */,
+				59A375201E1E18B400B3D19B /* Constants.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -110,16 +124,12 @@
 		59F8BE6A1E139EAC00E7998A /* YTSample */ = {
 			isa = PBXGroup;
 			children = (
+				59385AA21E24BDD3004D2B31 /* ApiModel */,
 				59385A981E238B8E004D2B31 /* Views */,
 				59A3751D1E1E132C00B3D19B /* Services */,
 				59F8BE6B1E139EAC00E7998A /* AppDelegate.swift */,
-				59A00AA71E1F89D000578B5D /* YoutubeTableViewCell.swift */,
 				59F8BE721E139EAD00E7998A /* Assets.xcassets */,
 				59F8BE771E139EAD00E7998A /* Info.plist */,
-				5966EC481E1BBE2200D71D09 /* YoutubeApiMapper.swift */,
-				59A375201E1E18B400B3D19B /* Constants.swift */,
-				59A00AA91E1FB96E00578B5D /* VideoCollectionViewController.swift */,
-				59A00AAB1E1FB98D00578B5D /* VideoCollectionViewCell.swift */,
 			);
 			path = YTSample;
 			sourceTree = "<group>";
@@ -265,15 +275,13 @@
 			files = (
 				59385A9D1E238CB7004D2B31 /* MainNavigationController.swift in Sources */,
 				59A375211E1E18B400B3D19B /* Constants.swift in Sources */,
-				59A00AAA1E1FB96E00578B5D /* VideoCollectionViewController.swift in Sources */,
+				59385AA51E24C177004D2B31 /* PolicyViewController.swift in Sources */,
 				59F8BE6E1E139EAC00E7998A /* ViewController.swift in Sources */,
 				59F8BE6C1E139EAC00E7998A /* AppDelegate.swift in Sources */,
-				59385AA11E249F8B004D2B31 /* DrawerViewController.swift in Sources */,
+				59385AA11E249F8B004D2B31 /* LeftViewController.swift in Sources */,
 				59A00AA81E1F89D000578B5D /* YoutubeTableViewCell.swift in Sources */,
 				59A3751F1E1E136300B3D19B /* ApiService.swift in Sources */,
-				59385A9A1E238BC1004D2B31 /* TabViewController.swift in Sources */,
-				59A00AAC1E1FB98D00578B5D /* VideoCollectionViewCell.swift in Sources */,
-				5966EC491E1BBE2200D71D09 /* YoutubeApiMapper.swift in Sources */,
+				5966EC491E1BBE2200D71D09 /* YoutubeApiModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

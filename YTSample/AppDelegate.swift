@@ -8,6 +8,7 @@
 
 import UIKit
 import Neon
+import MMDrawerController
 
 let Env = EnvType.localStaging
 
@@ -24,7 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.backgroundColor = .white
         
-        let tabBarViewController = TabViewController()
+        let tabBarViewController = MMDrawerController()
+        tabBarViewController.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
+        tabBarViewController.closeDrawerGestureModeMask = [MMCloseDrawerGestureMode.panningCenterView,MMCloseDrawerGestureMode.tapCenterView]
+        tabBarViewController.leftDrawerViewController = LeftViewController()
+        tabBarViewController.centerViewController = MainNavigationController()
+        
         self.window?.rootViewController = tabBarViewController
         self.window?.makeKeyAndVisible()
         
