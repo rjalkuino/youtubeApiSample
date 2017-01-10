@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		59385A9A1E238BC1004D2B31 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59385A991E238BC1004D2B31 /* TabViewController.swift */; };
 		59385A9D1E238CB7004D2B31 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59385A9C1E238CB7004D2B31 /* MainNavigationController.swift */; };
+		59385AA11E249F8B004D2B31 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59385AA01E249F8B004D2B31 /* DrawerViewController.swift */; };
 		5966EC491E1BBE2200D71D09 /* YoutubeApiMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966EC481E1BBE2200D71D09 /* YoutubeApiMapper.swift */; };
 		59A00AA81E1F89D000578B5D /* YoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A00AA71E1F89D000578B5D /* YoutubeTableViewCell.swift */; };
 		59A00AAA1E1FB96E00578B5D /* VideoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A00AA91E1FB96E00578B5D /* VideoCollectionViewController.swift */; };
@@ -25,6 +26,7 @@
 		270285A153F4D8BE7371940E /* Pods_YTSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59385A991E238BC1004D2B31 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		59385A9C1E238CB7004D2B31 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		59385AA01E249F8B004D2B31 /* DrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		5966EC481E1BBE2200D71D09 /* YoutubeApiMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeApiMapper.swift; sourceTree = "<group>"; };
 		59A00AA71E1F89D000578B5D /* YoutubeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeTableViewCell.swift; sourceTree = "<group>"; };
 		59A00AA91E1FB96E00578B5D /* VideoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 		59385A981E238B8E004D2B31 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				59385A9F1E249F63004D2B31 /* DrawerView */,
 				59385A991E238BC1004D2B31 /* TabViewController.swift */,
 				59385A9B1E238C80004D2B31 /* MainView */,
 			);
@@ -68,6 +71,14 @@
 				59385A9C1E238CB7004D2B31 /* MainNavigationController.swift */,
 			);
 			name = MainView;
+			sourceTree = "<group>";
+		};
+		59385A9F1E249F63004D2B31 /* DrawerView */ = {
+			isa = PBXGroup;
+			children = (
+				59385AA01E249F8B004D2B31 /* DrawerViewController.swift */,
+			);
+			name = DrawerView;
 			sourceTree = "<group>";
 		};
 		59A3751D1E1E132C00B3D19B /* Services */ = {
@@ -257,6 +268,7 @@
 				59A00AAA1E1FB96E00578B5D /* VideoCollectionViewController.swift in Sources */,
 				59F8BE6E1E139EAC00E7998A /* ViewController.swift in Sources */,
 				59F8BE6C1E139EAC00E7998A /* AppDelegate.swift in Sources */,
+				59385AA11E249F8B004D2B31 /* DrawerViewController.swift in Sources */,
 				59A00AA81E1F89D000578B5D /* YoutubeTableViewCell.swift in Sources */,
 				59A3751F1E1E136300B3D19B /* ApiService.swift in Sources */,
 				59385A9A1E238BC1004D2B31 /* TabViewController.swift in Sources */,
@@ -360,7 +372,7 @@
 				DEVELOPMENT_TEAM = 4Y4J5JD5NJ;
 				INFOPLIST_FILE = YTSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thousandminds.YTSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thousandminds.ytsample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -375,7 +387,7 @@
 				DEVELOPMENT_TEAM = 4Y4J5JD5NJ;
 				INFOPLIST_FILE = YTSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.thousandminds.YTSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thousandminds.ytsample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

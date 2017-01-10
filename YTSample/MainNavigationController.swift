@@ -16,6 +16,7 @@ class MainNavigationController: UINavigationController {
         super.viewDidLoad()
 
         pushViewController(mainViewController, animated: true)
+        
     }
 
     override func didReceiveMemoryWarning() {

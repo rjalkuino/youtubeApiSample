@@ -27,6 +27,18 @@ PODS:
   - libwebp/utils (0.5.1):
     - libwebp/core
   - libwebp/webp (0.5.1)
+  - MMDrawerController (0.6.0):
+    - MMDrawerController/Core (= 0.6.0)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
+    - MMDrawerController/MMDrawerVisualStates (= 0.6.0)
+    - MMDrawerController/Subclass (= 0.6.0)
+  - MMDrawerController/Core (0.6.0)
+  - MMDrawerController/MMDrawerBarButtonItem (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.6.0):
+    - MMDrawerController/Core
   - Neon (0.4.0)
   - ObjectMapper (2.2.2)
   - SDWebImage/Core (3.8.2)
@@ -38,6 +50,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - AlamofireObjectMapper (~> 4.0)
+  - MMDrawerController (~> 0.6.0)
   - Neon
   - ObjectMapper (~> 2.2.1)
   - SDWebImage/WebP
@@ -47,11 +60,12 @@ SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   AlamofireObjectMapper: 842d2eed43a4d0593ff0110d54ac86a170c4519c
   libwebp: b9126f8982a95370cf4eaad9bb3fefd57f052c15
+  MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   Neon: 7fb5a9327e7e57911843f608e08f4893a74deaf9
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: f5371b4fa2429e63b6d19a79874f3be5fb93dac7
+PODFILE CHECKSUM: 30a48b03a3ec5c4268dbb4862f221f3d176bf5d8
 
 COCOAPODS: 1.1.1

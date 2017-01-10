@@ -1,36 +1,18 @@
 //
-//  TabViewController.swift
+//  DrawerViewController.swift
 //  YTSample
 //
-//  Created by robert john alkuino on 1/9/17.
+//  Created by robert john alkuino on 1/10/17.
 //  Copyright © 2017 thousandminds. All rights reserved.
 //
 
 import UIKit
-import MMDrawerController
 
-class TabViewController: UIViewController {
-    let mainDrawerController = MMDrawerController()
+class DrawerViewController: UIViewController {
 
-    required init() {
-        
-        mainDrawerController.centerViewController = MainNavigationController()
-        mainDrawerController.leftDrawerViewController = DrawerViewController()
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.addSubview(mainDrawerController.centerViewController.view)
-        self.view.addSubview(mainDrawerController.leftDrawerViewController.view)
-        
-        
         // Do any additional setup after loading the view.
     }
 
